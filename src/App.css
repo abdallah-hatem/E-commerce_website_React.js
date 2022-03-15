@@ -1,38 +1,525 @@
-.App {
-  text-align: center;
+body {
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+      "Helvetica Neue", sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   display: unset;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+code {
+   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*********************** Navbar ***********************/
+
+.navbar {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   background-color: white;
+   height: 100px;
+   align-items: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title {
+   font-size: 30px;
+   font-weight: 700;
+   margin-left: 30px;
+   text-decoration: none;
+   color: black;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-buttons a {
+   border: none;
+   background-color: transparent;
+   font-size: 20px;
+   cursor: pointer;
+   margin-right: 15px;
+   color: black;
+   text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-buttons {
+   margin-right: 20px;
+}
+.login-buttons a {
+   border: none;
+   background-color: transparent;
+   font-size: 20px;
+   cursor: pointer;
+   margin-right: 15px;
+   position: relative;
+}
+.cart {
+   color: black;
+}
+
+.cart i {
+   font-size: 30px;
+   border: none;
+}
+
+.cart-num {
+   position: absolute;
+   right: 1.5%;
+   top: 0.4%;
+   color: rgb(255, 255, 255);
+   background-color: red;
+   border-radius: 100%;
+   height: 25px;
+   width: 25px;
+   text-align: center;
+}
+
+/*********************** Home ***********************/
+
+.home-img {
+   width: 100%;
+   height: 87vh;
+}
+.text-img #top {
+   color: white;
+   position: absolute;
+   top: 40%;
+   font-size: 60px;
+   font-weight: 700;
+   margin-left: 20px;
+}
+.text-img #bottom {
+   color: white;
+   position: absolute;
+   top: 55%;
+   font-size: 40px;
+   font-weight: 400;
+   margin-left: 20px;
+}
+
+/*********************** Products ***********************/
+
+.card {
+   width: 17%;
+   height: 60vh;
+   padding: 20px;
+   border-radius: 5px;
+   margin-bottom: 15px;
+   margin-top: 15px;
+   box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+   margin-right: 30px;
+   position: relative;
+}
+
+.card img {
+   width: 100%;
+   height: 210px;
+   border-radius: 5px;
+   margin-bottom: 20px;
+}
+
+.title-price {
+   display: flex;
+   justify-content: space-between;
+}
+.title-price #title {
+   font-weight: 700;
+   width: 60%;
+   height: 45px;
+   overflow: hidden;
+}
+.title-price #price {
+   font-weight: 500;
+}
+
+.card-cont {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.desc {
+   height: 100px;
+   overflow: hidden;
+   margin-bottom: 15px;
+   color: gray;
+   font-size: 16px;
+}
+
+.add {
+   cursor: pointer;
+   border-radius: 5px;
+   border: 1px solid black;
+   height: 30px;
+   width: 100%;
+   font-size: 18px;
+   background-color: black;
+   color: white;
+   transition: 0.2s all ease-in-out;
+}
+
+.add:hover {
+   opacity: 0.9;
+}
+.add:active {
+   transform: scale(0.9);
+}
+
+.btns button {
+   background-color: transparent;
+   border: 1px solid black;
+   border-radius: 5px;
+   font-size: 23px;
+   margin-right: 15px;
+   cursor: pointer;
+   height: 40px;
+   margin: 10px;
+}
+.btns button:hover {
+   background-color: black;
+   color: white;
+}
+.btns {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   margin-top: 50px;
+   margin-bottom: 20px;
+}
+
+.btns button:focus {
+   background-color: black;
+   color: white;
+}
+
+.latest-product {
+   text-align: center;
+   margin-top: 100px;
+   margin-bottom: 100px;
+}
+
+.latest-product::after {
+   content: ""; /* This is necessary for the pseudo element to work. */
+   display: block; /* This will put the pseudo element on its own line. */
+   margin: 0 auto; /* This will center the border. */
+   width: 70%; /* Change this to whatever width you want. */
+   padding-top: 20px; /* This creates some space between the element and the border. */
+   border-bottom: 1px solid grey;
+}
+
+/*********************** Single Product ***********************/
+
+.single-card-cont {
+   display: flex;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   margin-top: 20px;
+}
+.single-card {
+   display: flex;
+   flex-direction: row;
+}
+
+.details-cont {
+   display: flex;
+   flex-direction: column;
+   width: 1000px;
+}
+
+.single-card img {
+   height: 60vh;
+   min-width: 30%;
+   max-width: 30%;
+   margin: 10px;
+   border: 1px solid black;
+   margin-right: 30px;
+}
+
+.single-title-price {
+   display: flex;
+   flex-direction: column;
+   width: 90%;
+}
+
+.single-title-price #single-title {
+   font-size: 40px;
+   font-weight: 600;
+}
+.single-title-price #single-price {
+   font-size: 30px;
+   font-weight: 600;
+   /* align-self: flex-end; */
+}
+
+.single-desc {
+   height: 45%;
+   color: gray;
+   font-size: 20px;
+}
+
+.single-add {
+   margin-bottom: 10px;
+   font-size: 30px;
+   width: 30%;
+   align-self: center;
+   cursor: pointer;
+   background-color: white;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+.single-add:hover {
+   background-color: black;
+   border: 1px solid black;
+   color: white;
+}
+
+.single-add:focus {
+   transform: scale(0.9);
+}
+
+/*********************** Cart ***********************/
+/* 
+.cart-card-cont {
+   display: flex;
+   flex-direction: column;
+   margin-top: 20px;
+   margin-left: 20px;
+   height: 40vh;
+   width: 60%;
+}
+.cart-card {
+   display: flex;
+   flex-direction: row;
+   align-self: flex-start;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   margin-top: 20px;
+   height: 100%;
+}
+
+.cart-details-cont {
+   display: flex;
+   flex-direction: column;
+   height: 400px;
+   width: 650px;
+}
+
+.cart-card img {
+   height: 270px;
+   width: 220px;
+   margin: 10px;
+   border: 1px solid black;
+   margin-right: 20px;
+}
+
+.cart-title-price {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 90%;
+}
+
+.cart-title-price #cart-title {
+   font-size: 25px;
+   font-weight: 600;
+   width: 70%;
+   height: 30px;
+   overflow: hidden;
+}
+.cart-title-price #cart-price {
+   font-size: 25px;
+   font-weight: 600;
+   /* align-self: flex-end; */
+/* }
+
+.cart-desc {
+   height: 180px;
+   color: gray;
+   font-size: 20px;
+   overflow: hidden;
+} */
+
+/*********************** Cart checkout ***********************/
+
+.cart-wrapper {
+   display: flex;
+   justify-content: center;
+}
+
+.checkout {
+   display: flex;
+   flex-direction: column;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   background-color: aquamarine;
+   width: 35%;
+   margin-right: 15px;
+   margin-top: 40px;
+   border-radius: 5px;
+}
+.checkout #items {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+   align-items: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   background-color: white;
+   border-radius: 5px;
+   margin: 10px;
+   position: relative;
+}
+.checkout #title {
+   font-size: 25px;
+   font-weight: 500;
+   align-self: center;
+   margin-top: 10px;
+}
+.checkout #total {
+   font-size: 20px;
+   font-weight: 500;
+   margin-left: 15px;
+}
+
+.checkout #items img {
+   width: 50px;
+   height: 50px;
+   margin: 10px;
+   border: 1px solid black;
+   border-radius: 5px;
+}
+
+.checkout #clear-cart {
+   background-color: red;
+   border: 1px solid black;
+   color: white;
+   font-size: 20px;
+   margin-bottom: 10px;
+   border-radius: 5px;
+   height: 30px;
+   width: 40%;
+   cursor: pointer;
+   align-self: center;
+   transition: 0.1s all ease-in-out;
+}
+
+.checkout #clear-cart:hover {
+   background-color: rgb(230, 26, 26);
+}
+.checkout #clear-cart:focus {
+   transform: scale(0.9);
+}
+
+.add-minus-cont {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.add-minus-cont p {
+   margin-left: 20px;
+   width: 80px;
+}
+.add-minus-cont button {
+   height: 25px;
+   width: 25px;
+   text-align: center;
+   margin-left: 5px;
+   border: 1px solid black;
+   border-radius: 5px;
+   color: white;
+   cursor: pointer;
+}
+
+.add-minus-cont #add {
+   background-color: green;
+}
+.add-minus-cont #sub {
+   background-color: red;
+}
+
+.add-minus-cont #qty {
+   position: absolute;
+   left: 10%;
+}
+
+/*********************** Footer ***********************/
+
+@media only screen and (max-width: 910px) {
+   .text-img #bottom {
+      top: 65%;
+   }
+
+   .single-card-cont {
+      overflow: hidden;
+   }
+}
+
+@media only screen and (max-width: 782px) {
+   .card {
+      width: 23%;
+   }
+}
+@media only screen and (max-width: 678px) {
+   .nav-buttons {
+      display: none;
+   }
+
+   .card {
+      width: 36%;
+   }
+}
+@media only screen and (max-width: 492px) {
+   .text-img #top {
+      font-size: 40px;
+      width: 400px;
+      top: 20%;
+   }
+   .text-img #bottom {
+      font-size: 30px;
+      width: 300px;
+      top: 40%;
+   }
+   .card {
+      width: 70%;
+   }
+
+   .single-card-cont {
+      flex-direction: column;
+      padding: 20px;
+   }
+
+   .single-card {
+      flex-direction: column;
+   }
+
+   .single-card img {
+      min-width: 0;
+      max-width: 100%;
+      width: 80%;
+      height: 50%;
+      align-self: center;
+   }
+
+   .single-title-price {
+      width: 30%;
+   }
+
+   .single-title-price #single-price {
+      font-size: 30px;
+      font-weight: 600;
+      align-self: flex-end;
+   }
+
+   .single-desc {
+      height: 90%;
+      width: 35%;
+      color: gray;
+      font-size: 20px;
+   }
+
+   .single-add {
+      align-self: flex-start;
+      margin-left: 20px;
+   }
+
+   .checkout{
+      width: 90%;
+   }
 }
